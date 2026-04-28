@@ -1,0 +1,454 @@
+/* css/app.css */
+
+/* Variables de Color (Japón Style) */
+:root {
+    --rojo-japon: #bc002d;
+    --negro-fondo: #000000;
+    --gris-oscuro: #1a1a1a;
+    --blanco-texto: #ffffff;
+    --gris-texto: #cccccc;
+    --dorado: #d4af37;
+}
+
+/* Estilos Globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--blanco-texto);
+    color: var(--blanco-texto);
+    line-height: 1.6;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* Navegación */
+.navbar {
+    background-color: rgba(248, 85, 85, 0.9);
+    padding: 15px 0;
+    border-bottom: 2px solid var(--rojo-japon);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo .kanji {
+    color: var(--rojo-japon);
+    font-size: 1.8rem;
+}
+
+.enlaces a {
+    color: var(--blanco-texto);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.enlaces a:hover {
+    color: var(--rojo-japon);
+}
+
+.btn-staff-portal {
+    background-color: var(--rojo-japon);
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* --- 1. ESTILOS DEL HERO (IMAGEN DE FONDO) --- */
+.hero {
+    height: 100vh; /* Ocupa el 80% de la altura de la pantalla */
+    margin-top: 160px; /* Espacio para la navbar fija */
+    
+    /* DONDE PONER LA IMAGEN: */
+    background-image: url('../img/tree.png'); /* Ruta relativa a la imagen */
+    
+    /* Propiedades críticas para que se vea bien: */
+    background-size: cover;      /* Escala la imagen para cubrir todo el espacio */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Capa oscura sobre la imagen para que se lea el texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-content .subtitulo {
+    color: var(--dorado);
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--gris-texto);
+    margin-bottom: 30px;
+}
+
+.btn-rojo {
+    display: inline-block;
+    background-color: var(--rojo-japon);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-rojo:hover {
+    background-color: #900022;
+}
+
+/* --- 2. ESTILOS DEL MENÚ (CUADRÍCULA) --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px; height: 3px;
+    background-color: var(--rojo-japon);
+    position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.platillo-card {
+    background-color: var(--gris-oscuro);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.platillo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 207, 75, 0.5);
+}
+
+.platillo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+}
+
+.platillo-info {
+    padding: 20px;
+}
+
+.platillo-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--blanco-texto);
+}
+
+.platillo-info p {
+    color: var(--gris-texto);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    height: 40px; /* Alinea las tarjetas */
+}
+
+.platillo-info .precio {
+    display: block;
+    color: var(--rojo-japon);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* --- 3. ESTILOS DE PROMOCIONES --- */
+.promociones {
+    background-color: var(--gris-oscuro);
+}
+
+.promo-banner {
+    display: flex;
+    background-color: var(--negro-fondo);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--rojo-japon);
+    align-items: center;
+}
+
+.promo-content {
+    flex: 1;
+    padding: 50px;
+}
+
+.promo-content h2 {
+    font-size: 2.5rem;
+    color: var(--dorado);
+    margin-bottom: 20px;
+}
+
+.promo-content p {
+    color: var(--gris-texto);
+    margin-bottom: 20px;
+}
+
+.promo-content .codigo {
+    display: inline-block;
+    background-color: rgba(212, 175, 55, 0.2);
+    color: var(--dorado);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.promo-img {
+    flex: 1;
+    height: 100%;
+}
+
+.promo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--gris-texto);
+    font-size: 0.8rem;
+    border-top: 1px solid #333;
+}
+
+/* =======================================================
+   ESTILOS EXCLUSIVOS PARA EL PANEL ADMINISTRATIVO
+   Estos solo funcionan si el body tiene la clase "admin-body"
+   ======================================================= */
+
+.admin-body {
+    background-color: #0d0d0d !important; /* Fondo negro profundo */
+    color: hsl(0, 0%, 100%) !important;
+    margin: 0;
+    display: flex; /* Activa el diseño de columnas */
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Contenedor que separa Sidebar de Contenido */
+.admin-body .admin-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Barra Lateral (Sidebar) */
+.admin-body .sidebar {
+    width: 250px;
+    background: #161616;
+    border-right: 2px solid #bc002d; /* Línea roja Sakura */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-body .sidebar-logo {
+    color: #bc002d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.admin-body .sidebar-nav a {
+    display: block;
+    color: #a0a0a0;
+    text-decoration: none;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.admin-body .sidebar-nav a:hover {
+    background: #bc002d;
+    color: white;
+}
+
+/* Área de trabajo derecha */
+.admin-body .main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #0a0a0a;
+}
+
+/* Tarjetas de Información */
+.admin-body .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.admin-body .stat-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.admin-body h1, .admin-body h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Botones dentro del admin */
+.admin-body .btn-sm {
+    color: #bc002d;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-eliminar {
+    background-color: transparent;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    background-color: #ff4444;
+    color: white;
+}
+
+/* Contenedor principal del contenido */
+.main-content {
+    padding: 2rem;
+    background-color: #f4f7f6; /* Un gris muy claro de fondo para que resalten las tarjetas */
+    min-height: 100vh;
+}
+
+/* Título de la sección */
+.main-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* Rejilla para las tarjetas superiores (Platillos, Staff, Ventas) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Estilo de las Tarjetas (Cards) */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid #ff4d6d; /* El color de Sakura */
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #ff4d6d;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #ff4d6d;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* --- ESTILO DE LA TABLA (Para que no abarque todo) --- */
+.table-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 900px; /* AQUÍ LIMITAMOS EL ANCHO */
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: #ff4d6d;
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
